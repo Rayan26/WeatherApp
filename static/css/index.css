@@ -16,6 +16,10 @@ label {
     width: 90% !important;
 }
 
+.card {
+    margin:1em;
+}
+
 .info {
     display: flex;
 }
