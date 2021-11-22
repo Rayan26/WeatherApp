@@ -19,6 +19,9 @@ def meteo():
         display.append(getweather1())
         display.append(getweather2())
         display.append(getweather3())
+
+        for API in display:
+            print(API.keys())
         return render_template('index.html', display=display)
     else:
         return render_template('index.html')
@@ -40,7 +43,6 @@ def getweather1():
         display_list['temp'] = response['current']['temp_c']
         display_list['weather'] = response['current']['condition']['text']
         display_list['icon'] = response['current']['condition']['icon']
-        print (display_list['icon'])
     return display_list
 
 
@@ -59,8 +61,6 @@ def getweather2():
         display_list['temp'] = response['main']['temp']
         display_list['weather'] = response['weather'][0]['description']
         display_list['icon'] = "http://openweathermap.org/img/w/" + response['weather'][0]['icon'] + ".png"
-        print(display_list['icon'])
-        print(response)
     return display_list
 
 
@@ -79,7 +79,6 @@ def getweather3():
         display_list['temp'] = response['current']['temperature']
         display_list['weather'] = response['current']['weather_descriptions'][0]
         display_list['icon'] = response['current']['weather_icons'][0]
-        print(display_list['icon'])
     return display_list
 
 
